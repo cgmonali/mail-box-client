@@ -150,7 +150,7 @@ const SignUpPage =(props) => {
    
      </section>
      <button className={classes.account}>
-      Have an account? <div >Login</div>
+      Have an account? <div onClick={()=>{navigate('/login')}} >Login</div>
     </button>
     </div>
         </>
