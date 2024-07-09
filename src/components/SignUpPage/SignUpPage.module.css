@@ -1,8 +1,5 @@
 .signUpContainer{
-    position: relative;
-    top: 180px;
-    left: 13%;
-
+  
 }
 
 .auth {
@@ -56,7 +53,7 @@
   }
   
   input:focus + label,input:not(:placeholder-shown) + label  {
-    top: 0;
+    top: -5px;
 
     font-size: 12px;
 

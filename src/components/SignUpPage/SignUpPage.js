@@ -117,6 +117,7 @@ const SignUpPage =(props) => {
     };
    return (     
         <>
+        
        < div className={classes.signUpContainer}>
          <section className={classes.auth}>
       <h1>SignUp</h1>

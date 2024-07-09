@@ -1,0 +1,26 @@
+.customCc{
+    border: 0;
+    padding-left: 0;
+    color: #989191;
+    font-size: 16px;
+}
+.customBcc{
+    border: 0;
+    padding-right: 0;
+    color: #d4d4d4;
+    font-size: 16px;
+}
+/* .customCc:hover, .customBcc:hover{
+    background-color: white;
+    color: #d4d4d4;
+} */
+.customCcandBcc{
+border: 1px solid #d4d4d4;
+border-left: 0;
+}
+
+span{
+    display: flex;
+    align-items: center;
+    color: #383434;
+}
