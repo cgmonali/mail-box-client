@@ -3,7 +3,10 @@ import SignUpPage from "./components/SignUpPage/SignUpPage";
 import Layout from "./components/Layout/Layout";
 import Login from "./components/Login/Login";
 
-import store from './store/index.js';
+
+import EmailEditor from "./components/EditorDesign/EditorDesign";
+
+
 function App() {
   return (
     <Router>
@@ -11,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/' exact element={<SignUpPage />} />
         <Route path='/login'  element={<Login />}/>
-        <Route path="/home" element={<h3>Welcome to Mail Box Page</h3>} />
+        <Route path="/home" element={< EmailEditor/>} />
    
 
       </Routes>
