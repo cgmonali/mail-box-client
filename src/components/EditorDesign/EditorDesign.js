@@ -11,7 +11,7 @@ import app from '../../firebase';
 import firebase from '../../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { getDatabase,ref, push,set } from 'firebase/database';
-
+import { useSelector } from 'react-redux';
 
 const EmailEditor = () => {
     const [to, setTo] = useState('');
@@ -22,7 +22,7 @@ const EmailEditor = () => {
     const [emailError, setEmailError] = useState(false);
     const [subjectError, setSubjectError] = useState(false);
     const [bodyError, setBodyError] = useState(false);
-
+const userEmail = useSelector((state) => state.auth.registeredEmail);
 
     const toggleCc = () => setShowCc(!showCc);
     const toggleBcc = () => setShowBcc(!showBcc);
@@ -45,7 +45,7 @@ const EmailEditor = () => {
             e.preventDefault();
           
             const email = {
-                from: 'abc@gmail.com',
+                from: userEmail,
                 to: to,
                 subject: subject,
                 body: body,
@@ -146,23 +146,30 @@ function validations(){
 
     return (
         
-        <Container>
+        <div style={{width:'90%'}}>
             <Form>
-                <Form.Group controlId="formTo">
-                    <Form.Label>To:</Form.Label>
-                    <InputGroup className="mb-3 ">
+                <Form.Group controlId="formTo" style={{position:'relative'}}>
+                    <Form.Label className={classes.labelAdjustment} >To:</Form.Label>
+                    <InputGroup className="mb-1"  >
                         <Form.Control
                             type="email"
                             value={to}
                             onChange={handleToChange}
                             placeholder="Enter recipient's email"
+                            style={{
+                            userSelect: 'none',    
+                            paddingLeft: '30px',
+                            border: 'oldlace',
+                            borderBottom: '1px solid #d6d3d3',
+                            borderRadius:'0'}}
+                            className='input-adjustment'
                         
                         />
                         <ButtonGroup className={classes.customCcandBcc}>
-                            <Button variant="" onClick={toggleCc} className={classes.customCc}>
+                            <Button variant="" onClick={toggleCc} className={classes.customCc} >
                                 CC
                             </Button>
-                            <span>/</span>
+                
                             <Button variant="" onClick={toggleBcc} className={classes.customBcc}>
                                 BCC
                             </Button>
@@ -170,34 +177,56 @@ function validations(){
                     </InputGroup>
                     {emailError && <p style={{ color: 'red' }}>Please enter recipient's email</p>}
                     {showCc && (
-                        <Form.Group>
-                            <Form.Label>CC:</Form.Label>
+                        <Form.Group style={{position:'relative'}}>
+                            <Form.Label className={classes.labelAdjustment}>CC:</Form.Label>
                             <Form.Control
                                 type="email"
                                 placeholder="Enter CC email"
-                                style={{ marginBottom: '10px' }}
+                           className='input-adjustment mb-1'
+                           style={{
+                            paddingLeft:'40px', 
+                            userSelect: 'none',    
+                            paddingLeft: '40px',
+                            border: 'oldlace',
+                            borderBottom: '1px solid #d6d3d3',
+                            borderRadius:'0'}}
+                      
                             />
                         </Form.Group>
                     )}
                     {showBcc && (
-                        <Form.Group>
-                            <Form.Label>BCC:</Form.Label>
+                        <Form.Group style={{position:'relative'}}>
+                            <Form.Label className={classes.labelAdjustment}>BCC:</Form.Label>
                             <Form.Control
                                 type="email"
                                 placeholder="Enter BCC email"
-                                style={{ marginBottom: '10px' }}
+                                className='input-adjustment mb-1'
+                                style={{
+                                    paddingLeft:'50px', 
+                                    userSelect: 'none',    
+                                    paddingLeft: '40px',
+                                    border: 'oldlace',
+                                    borderBottom: '1px solid #d6d3d3',
+                                    borderRadius:'0'}}
                             />
                         </Form.Group>
                     )}
-                </Form.Group>
-                <Form.Group controlId="formSubject">
-                    <Form.Label>Subject:</Form.Label>
+                </Form.Group >
+                <Form.Group controlId="formSubject" style={{position:'relative'}}>
+                    <Form.Label className={classes.labelAdjustment}>Subject:</Form.Label>
                     <Form.Control
                         type="text"
                         value={subject}
                         onChange={handleSubjectChange}
                         placeholder="Enter email subject"
-                        style={{ marginBottom: '10px' }}
+                        className='input-adjustment mb-1'
+                        style={{
+                            paddingLeft:'60px', 
+                            userSelect: 'none',    
+                         
+                            border: 'oldlace',
+                            borderBottom: '1px solid #d6d3d3',
+                            borderRadius:'0'}}
                     />
                 </Form.Group>
                 {subjectError && <p style={{ color: 'red' }}>Please enter email subject</p>}
@@ -220,7 +249,7 @@ function validations(){
                     Send Email
                 </Button>
             </Form>
-        </Container>
+        </div>
     );
 };
 

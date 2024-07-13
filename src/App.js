@@ -5,6 +5,8 @@ import Login from "./components/Login/Login";
 
 
 import EmailEditor from "./components/EditorDesign/EditorDesign";
+import MailSideBar from "./components/MailSideBar/MailSideBar";
+import MailInbox from "./components/MailInbox/MailInbox";
 
 
 function App() {
@@ -14,9 +16,12 @@ function App() {
       <Routes>
         <Route path='/' exact element={<SignUpPage />} />
         <Route path='/login'  element={<Login />}/>
-        <Route path="/home" element={< EmailEditor/>} />
+        
    
-
+        <Route path="/MailBox/*" element={<MailSideBar/>} >
+        <Route path="inbox" element={<MailInbox />} />
+        <Route path="compose" element={< EmailEditor/>} />
+      </Route>
       </Routes>
 </Layout>
     </Router>
