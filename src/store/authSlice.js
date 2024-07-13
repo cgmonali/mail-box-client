@@ -9,16 +9,19 @@ const authSlice = createSlice({
   initialState: {
     isLoggedIn: !!initialToken, // If token exists, user is considered logged in
     token: initialToken,
+    registeredEmail: null,
   },
   reducers: {
     login: (state, action) => {
       state.isLoggedIn = true;
       state.token = action.payload.token;
+      state.registeredEmail = action.payload.email;
       localStorage.setItem('token', action.payload.token); // Save token to localStorage
     },
     logout: (state) => {
       state.isLoggedIn = false;
       state.token = null;
+      state.registeredEmail= null;
       localStorage.removeItem('token'); // Remove token from localStorage
     },
   },

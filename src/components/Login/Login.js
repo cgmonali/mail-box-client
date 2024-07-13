@@ -113,9 +113,10 @@ async function forgotPasswordHandler () {
           const user1 = {
             token: data.idToken,
             userId: data.localId,
+            email: data.email,
           };
        
-          history('/home');
+          history('/MailBox/compose');
           dispatch(login(user1));
           console.log(user1);
 

@@ -10,17 +10,30 @@
     color: #d4d4d4;
     font-size: 16px;
 }
-/* .customCc:hover, .customBcc:hover{
-    background-color: white;
+.customCc:hover, .customBcc:hover{
     color: #d4d4d4;
-} */
+}
 .customCcandBcc{
 border: 1px solid #d4d4d4;
-border-left: 0;
+border: 0;
+border-bottom: 1px solid #d6d3d3;
 }
 
-span{
-    display: flex;
-    align-items: center;
-    color: #383434;
+.labelAdjustment{
+    position: absolute;
+    z-index: 7;
+    top: 6px;
+    left: 0px;
+    height: 10%;
+}
+
+.form-label{
+    color: red;
+}
+
+.input-adjustment{
+    padding-left: 40px;
+    border: oldlace !important;
+    border-bottom: 1px solid #d6d3d3 !important;
+    border-radius: 0 !important;
 }
