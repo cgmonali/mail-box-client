@@ -7,7 +7,7 @@ import Login from "./components/Login/Login";
 import EmailEditor from "./components/EditorDesign/EditorDesign";
 import MailSideBar from "./components/MailSideBar/MailSideBar";
 import MailInbox from "./components/MailInbox/MailInbox";
-
+import EmailDetail from "./components/EmailDetail/EmailDetail";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
    
         <Route path="/MailBox/*" element={<MailSideBar/>} >
         <Route path="inbox" element={<MailInbox />} />
+        <Route path="inbox/:emailId" element={<EmailDetail />} />
         <Route path="compose" element={< EmailEditor/>} />
       </Route>
       </Routes>

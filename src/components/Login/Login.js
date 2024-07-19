@@ -56,7 +56,7 @@ async function forgotPasswordHandler () {
             setIsLoading(false);
           const data = await response.json();
           console.log('password change');
-          console.log(data);
+          // console.log(data);
           setDisplayPaswordRmark(true)
          
          
@@ -120,7 +120,7 @@ async function forgotPasswordHandler () {
           dispatch(login(user1));
           console.log(user1);
 
-          console.log(data);
+          // console.log(data);
     
           console.log(data.idToken);
         } else {
