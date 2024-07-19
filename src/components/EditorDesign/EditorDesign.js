@@ -49,6 +49,7 @@ const userEmail = useSelector((state) => state.auth.registeredEmail);
                 to: to,
                 subject: subject,
                 body: body,
+                timestamp: Date.now(),
             };
              console.log(email);
             //  const db = getDatabase(app);
