@@ -119,7 +119,7 @@ function validations(){
             
         
             try {
-                const response = await fetch(`https://mail-cient-mails-default-rtdb.firebaseio.com/emails/received-mails/${email.to.replace(/\./g, '-')}.json`, {
+                const response = await fetch(`https://mail-cient-mails-default-rtdb.firebaseio.com/emails/inbox-mails/${email.to.replace(/\./g, '-')}.json`, {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
