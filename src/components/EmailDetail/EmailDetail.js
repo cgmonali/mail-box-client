@@ -2,14 +2,14 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const EmailDetail = () => {
+const EmailDetail = ({mailType}) => {
     const { emailId } = useParams();
     const userEmail = useSelector((state) => state.auth.registeredEmail);
     const [email, setEmail] = React.useState(null);
 console.log(emailId)
     React.useEffect(() => {
         const fetchEmail = async () => {
-            const response = await fetch(`https://mail-cient-mails-default-rtdb.firebaseio.com/emails/received-mails/${userEmail.replace(/\./g, '-').replace(/@/g, '%40')}/${emailId}.json`);
+            const response = await fetch(`https://mail-cient-mails-default-rtdb.firebaseio.com/emails/${mailType}-mails/${userEmail.replace(/\./g, '-').replace(/@/g, '%40')}/${emailId}.json`);
             if(response.ok){
                 const data = await response.json();
                 setEmail(data);

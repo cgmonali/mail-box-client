@@ -19,9 +19,11 @@ function App() {
         
    
         <Route path="/MailBox/*" element={<MailSideBar/>} >
-        <Route path="inbox" element={<MailInbox />} />
-        <Route path="inbox/:emailId" element={<EmailDetail />} />
+        <Route path="inbox" element={<MailInbox mailType="inbox"/>} />
+        <Route path="inbox/:emailId" element={<EmailDetail  mailType="inbox"/>} />
+        <Route path="sent/:emailId" element={<EmailDetail mailType="sent"/>} />
         <Route path="compose" element={< EmailEditor/>} />
+        <Route path="sent" element={<MailInbox mailType="sent" />} />
       </Route>
       </Routes>
 </Layout>
