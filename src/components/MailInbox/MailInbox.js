@@ -111,6 +111,22 @@ const handleEmailClick = (emailId) => {
   history(`/MailBox/inbox/${emailId}`);
 };
 
+
+const deleteEmail = async (emailId) => {
+  try {
+    await fetch(`https://mail-cient-mails-default-rtdb.firebaseio.com/emails/received-mails/${userEmail.replace(/\./g, '-').replace(/@/g, '%40')}/${emailId}.json`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    setEmails((prevEmails) => prevEmails.filter(email => email.id !== emailId));
+    dispatch(updateCount(emails.filter(email => !email.read).length));
+  } catch (error) {
+    console.error("Error deleting email:", error);
+  }
+};
+
     return (
    
         <div className="" style={{ width: "95%" }}> 
@@ -141,6 +157,7 @@ const handleEmailClick = (emailId) => {
                     icon={faTrashAlt}
                     className="text-secondary mr-3"
                     style={{ cursor: "pointer" }}
+                    onClick={() => deleteEmail(email.id)}
                   />
                 </div>
               </ListGroup.Item>
